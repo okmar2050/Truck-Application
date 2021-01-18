@@ -1,0 +1,11 @@
+{% extends 'truckapp/base.html' %} {% block content%}
+<h1>Truck update Form:</h1>
+<form method="post">
+    {% csrf_token %} Truck Name:<input type="text" value="{{ truck.truck_name }}" name="truck_name" />
+    <br /> Food Type:<input type="text" value="{{ truck.food_type }}" name="food_type" /><br /> Truck Location<input type="text" value="{{ truck.truck_location }}" name="truck_location" /><br /> Truck Geolocation<input type="text" value="{{ truck.geo_location }}"
+        name="geo_location" /><br />
+    <a href="javascript:getLocation();">Get location</a><br />Truck Opening Time
+    <input type="time" value="{{ truck.truck_opening_time }}" name="truck_opening_time" /><br /> Truck Closing Timimg<input type="time" value="{{ truck.truck_closing_time}}" name="truck_closing_time" /><br />
+    <input type="submit" class="btn btn-primary" value="Update Truck" />
+</form>
+{% endblock %}

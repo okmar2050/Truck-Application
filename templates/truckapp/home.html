@@ -1,0 +1,25 @@
+{% extends 'truckapp/base.html' %} {% block content %}
+<h1 align="center">Truck Home</h1>
+    {% if error %}
+    <h1>{{error}}</h1>
+    {% endif %}
+    <form action="{% url 'search' %}" method="GET">
+        <input type="search" name="search" />
+        <button type="submit">Search</button>
+        <a href="{% url 'home' %}">reset search filter</a>
+    </form><hr>
+        {% for add in truck_list %}
+        <ul>
+            <li>Truck No:{{add.truck_name}}</li>
+            <li>Foods Available:{{add.food_type}}</li>
+            <li>Truck Address:{{add.truck_location}}</li>
+            <li>Truck Timing:{{add.truck_opening_time}}-{{add.truck_closing_time}}</li>
+            <li>
+                <iframe src="https://maps.google.com/maps?q={{add.geo_location}}&hl=en;z=14&amp;output=embed"></iframe>
+            </li>
+        </ul><hr>
+
+        {% endfor %}
+
+
+{% endblock %}

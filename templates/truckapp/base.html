@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
+
+    <title>title</title>
+    <script>
+        function getLocation() {
+            var x = document.getElementById("id_geo_location");
+
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser";
+            }
+        }
+
+        function showPosition(position) {
+            var x = document.getElementById("id_geo_location");
+            console.log(position.coords.latitude, position.coords.longitude);
+            console.log(x);
+            x.value = position.coords.latitude + "," + position.coords.longitude;
+        }
+    </script>
+</head>
+
+<body>
+    {% block content %} {% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+{% extends 'truckapp/base.html' %} {% block content%}
+
+<h1>Truck Add Form:</h1>
+<form method="post">
+    {% csrf_token %} {{form.non_field_erros}}
+    <div class="fieldwrapper">
+        <p style="color: chocolate">{{form.truck_name.errors}}</p>
+        <label for="{{form.truck_name.id_for_label}}">Truck Name</label> {{form.truck_name}}
+    </div>
+    <div class="fieldwrapper">
+        <p style="color: chocolate">{{form.food_type.errors}}</p>
+        <label for="{{form.food_type.id_for_label}}">Food type</label> {{form.food_type}}
+    </div>
+    <div class="fieldwrapper">
+        <p style="color: chocolate">{{form.truck_location.errors}}</p>
+        <label for="{{form.truck_location.id_for_label}}">Truck Address</label> {{form.truck_location}}
+    </div>
+    <div class="fieldwrapper">
+        <p style="color: chocolate">{{form.geo_location.errors}}</p>
+        <label for="{{form.geo_location.id_for_label}}">Truck geo location</label> {{form.geo_location}}
+        <a href="javascript:getLocation();">Get location</a>
+    </div>
+    <div class="fieldwrapper">
+        <p style="color: chocolate">{{form.truck_opening_time.errors}}</p>
+        <label for="{{form.truck_opening_time.id_for_label}}">Opening Time</label>
+        <input type="time" name="truck_opening_time" required="" id="id_truck_opening_time" />
+    </div>
+    <div class="fieldwrapper">
+        <p style="color: chocolate">{{form.truck_closing_time.errors}}</p>
+        <label for="{{form.truck_closing_time.id_for_label}}">Closing Time</label>
+        <input type="time" name="truck_closing_time" required="" id="id_truck_closing_time" />
+    </div>
+
+    <!-- <p id="id_geo_location"></p> -->
+    <input type="submit" class="btn btn-primary" value="Submit" />
+</form>
+{% endblock %}
