@@ -9,6 +9,5 @@ class Truck(models.Model):
     truck_opening_time=models.CharField(max_length=20,null=True)
     truck_closing_time=models.CharField(max_length=20,null=True)
 
-
     def __str__(self):
         return self.truck_name
